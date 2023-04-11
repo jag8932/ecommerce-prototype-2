@@ -1,0 +1,43 @@
+nav {
+  background-color: gainsboro;
+}
+
+#searchbar-img {
+  background-color: white;
+}
+.searchbar-container {
+  display: flex;
+  flex-direction: row;
+  vertical-align: center;
+  border-radius: 15px 15px 15px 15px;
+  /*width: 50%; */
+  
+}
+
+#searchBar {
+  width: 100%;
+  border: none;
+  border-radius: 15px 0px 0px 15px;
+  padding-left: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: white;
+}
+
+#searchBar:focus {
+  outline: none;
+}
+#searchBar:visited {
+  background-color: white;
+}
+
+#searchButton {
+  border-radius: 0px 15px 15px 0px;
+  border: none;
+}
+#searchButton:hover {
+  background-color:#0B5BD2;
+}
+#searchButton:focus {
+  background-color: #094FAB;
+}
