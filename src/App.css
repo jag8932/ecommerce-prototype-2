@@ -41,3 +41,11 @@ nav {
 #searchButton:focus {
   background-color: #094FAB;
 }
+input:-internal-autofill-selected {
+  background-color: white;
+}
+
+.main-content {
+  margin: auto;
+  width: 75%;
+}

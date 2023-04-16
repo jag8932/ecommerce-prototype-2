@@ -9,12 +9,22 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 }).promise();
 
-export default async function getAllProducts() {
+const getAllProducts = async() => {
     const [rows] = await pool.query("SELECT * FROM products");
     return rows;
 }
 
-export async function getProduct(id) {
+const searchFor = async(input) => {
+    const [rows] = await pool.query("SELECT * FROM products WHERE title Like ?", [input]);
+    if (rows.length > 0) {
+        return rows[0];
+    }
+    return {
+        message: "Item not found"
+    }
+}
+
+const getProduct = async(id) => {
     const [rows] = await pool.query(`
     SELECT *
     FROM products
@@ -23,22 +33,31 @@ export async function getProduct(id) {
     return rows[0];
 }
 
-export async function getAllUsers() {
+const getAllUsers = async() => {
 
 }
 
-export async function getUser(id) {
+const getUser = async(id) => {
 
 }
-export async function createProduct() {
-
-}
-
-export async function createUser() {
+const createProduct = async() => {
 
 }
 
-const prod = await getAllProducts();
-console.log(prod);
+const createUser = async() => {
+
+}
+
+const queryData = {
+    getAllProducts,
+    searchFor,
+    getProduct,
+    getAllUsers,
+    getUser,
+    createProduct,
+    createUser,
+}
+ 
+export default queryData;
 
 

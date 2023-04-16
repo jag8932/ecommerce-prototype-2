@@ -5,11 +5,18 @@ const SearchBar = ({ callback }) => {
 
     function handleSearch(e) {
         e.preventDefault();
-       // const userInput = document.querySelector('input[name=sbar]').value;
-
-        axios.get(`http://localhost:3000/sbar=${sbar.value}`)
+        const input = document.getElementById('searchBar').value;
+        console.log(input);
+        axios.get(`http://localhost:3000/search`, {
+            params: {
+                search: input
+            }
+        })
         .then((response) => {
             callback(response.data);
+        })
+        .catch(error => {
+            console.log(error);
         });
     }
 
